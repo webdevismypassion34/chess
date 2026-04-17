@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="info" id="info"></div>
+        <div class="controls" id="controls">
+          <button id="btnOfferDraw">Offer Draw</button>
+          <button id="btnResign">Resign</button>
+        </div>
+      </div>
+      <div class="board"></div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <div class="analysis-tip" id="analysisTip"></div>
+    <div class="draw-offer-dialog" id="drawOfferDialog">
+      <span>Your opponent offers a draw.</span>
+      <div class="draw-offer-btns">
+        <button id="btnAcceptDraw">Accept</button>
+        <button id="btnDeclineDraw">Decline</button>
+      </div>
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

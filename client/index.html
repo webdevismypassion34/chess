@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="join">
+        <span>Join a game:</span><br />
+        <label class="ws-label">Server
+          <input id="wsUrl" type="text" class="ws-input" placeholder="ws://localhost:9001" />
+        </label>
+        <button id="queueBtn">Queue</button>
+      </div>
+    </div>
+    <script>
+      const LS_KEY = 'chessWsUrl';
+      const DEFAULT_URL = 'ws://localhost:9001';
+
+      const urlInput = document.getElementById('wsUrl');
+      urlInput.value = localStorage.getItem(LS_KEY) || DEFAULT_URL;
+      urlInput.addEventListener('change', () => {
+        localStorage.setItem(LS_KEY, urlInput.value.trim() || DEFAULT_URL);
+      });
+
+      const btn = document.getElementById('queueBtn');
+      let ws = null;
+
+      btn.addEventListener('click', () => {
+        const url = urlInput.value.trim() || DEFAULT_URL;
+        localStorage.setItem(LS_KEY, url);
+        btn.disabled = true;
+        btn.textContent = 'Connecting...';
+        ws = new WebSocket(url);
+        ws.addEventListener('open', () => {
+          btn.textContent = 'Waiting...';
+          ws.send(JSON.stringify({ type: 'queue' }));
+        });
+        ws.addEventListener('error', () => {
+          btn.disabled = false;
+          btn.textContent = 'Queue';
+          alert('Could not connect to ' + url);
+        });
+        ws.onmessage = e => {
+          const msg = JSON.parse(e.data);
+          if (msg.type === 'start') {
+            window.location.href = `/client/game.html?token=${msg.token}`;
+          }
+          if (msg.type === 'error') {
+            alert(msg.message);
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

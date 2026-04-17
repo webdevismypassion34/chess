@@ -541,7 +541,7 @@ ws.onmessage = async e => {
     showToast(msg.message, 0);
     if (!gameOver) {
       setTimeout(() => {
-        window.location.href = '/client/index.html';
+        window.location.href = 'index.html';
       }, 2000);
     }
     return;

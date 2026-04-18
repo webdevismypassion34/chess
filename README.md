@@ -4,7 +4,7 @@ Browser-based multiplayer chess game
 
 Made for school, since they blocked chess.com and every other chess website
 
-Access at [https://webdevismypassion34.github.io/chess/](https://webdevismypassion34.github.io/chess/)
+Access it at [https://webdevismypassion34.github.io/chess/](https://webdevismypassion34.github.io/chess/)
 
 ## Hosting
 

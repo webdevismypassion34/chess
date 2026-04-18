@@ -20,9 +20,11 @@ The client is static and can be hosted on:
 
 ### Server
 
-1. Verify Node.js is installed: `node -v`. If not, [download it here](https://nodejs.org/en/download/).
-2. Install dependencies: `npm install`
-3. Start the server: `npm start`
+1. Clone the repo: `git clone https://github.com/webdevismypassion34/chess.git`
+2. Enter the repo's directory: `cd chess`
+3. Verify Node.js is installed: `node -v`. If not, [download it here](https://nodejs.org/en/download/)
+4. Install dependencies: `npm install`
+5. Start the server: `npm start`
 
 To make the server public, use a tunnel:
 

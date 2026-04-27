@@ -16,7 +16,7 @@ The client is static and can be hosted on:
 - [Vercel](https://vercel.com/)
 - [Netlify](https://netlify.com/)
 
-> Hosts that have a restrictive CSP (e.g. [Neocities](https://neocities.org/)) will block cross-origin WebSocket connections
+Hosts that have a restrictive CSP (e.g. [Neocities](https://neocities.org/)) will block cross-origin WebSocket connections, which breaks online play
 
 ### Server
 
